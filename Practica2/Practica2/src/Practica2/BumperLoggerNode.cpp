@@ -44,6 +44,7 @@ BumperLoggerNode::BumperLoggerNode()
     100ms, std::bind(&BumperLoggerNode::control_timer_callback, this));
 
   RCLCPP_INFO(this->get_logger(), "Nodo de teleoperación por bumper iniciado");
+  RCLCPP_INFO(this->get_logger(), "Velocidades: lineal=%.2f m/s, angular=%.2f rad/s", linear_speed_, angular_speed_);
 }
 
 void BumperLoggerNode::bumper_callback(const kobuki_ros_interfaces::msg::BumperEvent::SharedPtr msg){
@@ -72,7 +73,7 @@ void BumperLoggerNode::control_timer_callback()
 {
     auto twist = geometry_msgs::msg::Twist();
 
-      if (left_pressed_ && right_pressed_) {
+    if (left_pressed_ && right_pressed_) {
     // Ambos laterales pulsados: parar (prioridad máxima)
     twist.linear.x = 0.0;
     twist.angular.z = 0.0;
