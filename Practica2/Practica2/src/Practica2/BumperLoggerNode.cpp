@@ -1,4 +1,4 @@
-// Copyright 2026 Intelligent Robotics Lab
+// Copyright 2024 Patricia Cassidy
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ BumperLoggerNode::BumperLoggerNode()
 
   // Crear timer para control a 10 Hz
   control_timer_ = this->create_wall_timer(
-    100ms, std::bind(&BumperTeleopNode::control_timer_callback, this));
+    100ms, std::bind(&BumperLoggerNode::control_timer_callback, this));
 
   RCLCPP_INFO(this->get_logger(), "Nodo de teleoperación por bumper iniciado");
 }
@@ -70,6 +70,35 @@ void BumperLoggerNode::bumper_callback(const kobuki_ros_interfaces::msg::BumperE
 
 void BumperLoggerNode::control_timer_callback()
 {
-  RCLCPP_DEBUG(this->get_logger(), "Estado: L=%d C=%d R=%d", 
-               left_pressed_, center_pressed_, right_pressed_);
+    auto twist = geometry_msgs::msg::Twist();
+
+      if (left_pressed_ && right_pressed_) {
+    // Ambos laterales pulsados: parar (prioridad máxima)
+    twist.linear.x = 0.0;
+    twist.angular.z = 0.0;
+    RCLCPP_DEBUG(this->get_logger(), "Ambos laterales -> PARAR");
+  } else if (left_pressed_) {
+    // Giro izquierda
+    twist.linear.x = 0.0;
+    twist.angular.z = angular_speed_;
+    RCLCPP_DEBUG(this->get_logger(), "Giro izquierda");
+  } else if (right_pressed_) {
+    // Giro derecha
+    twist.linear.x = 0.0;
+    twist.angular.z = -angular_speed_;
+    RCLCPP_DEBUG(this->get_logger(), "Giro derecha");
+  } else if (center_pressed_) {
+    // Avanzar
+    twist.linear.x = linear_speed_;
+    twist.angular.z = 0.0;
+    RCLCPP_DEBUG(this->get_logger(), "Avanzar");
+  } else {
+    // Ninguno pulsado: parar
+    twist.linear.x = 0.0;
+    twist.angular.z = 0.0;
+    RCLCPP_DEBUG(this->get_logger(), "Parado");
+  }
+  
+  // Publicar el comando de velocidad
+  cmd_vel_pub_->publish(twist);
 }
