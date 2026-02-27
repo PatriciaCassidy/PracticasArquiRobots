@@ -4,59 +4,45 @@ project(Practica2)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(kobuki_ros_interfaces REQUIRED)
 
 add_library(${PROJECT_NAME}
-  src/Practica2/LoggerNode.cpp
-  src/Practica2/PublisherNode.cpp
-  src/Practica2/SubscriberNode.cpp
+  src/Practica2/BumperLoggerNode.cpp
 )
+
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
 )
-target_link_libraries(${PROJECT_NAME} PUBLIC
-  rclcpp::rclcpp
-  ${std_msgs_TARGETS}
+target_link_libraries(${PROJECT_NAME})
+  ament_target_dependencies(${PROJECT_NAME}
+  rclcpp
+  geometry_msgs
+  kobuki_ros_interfaces
 )
 
 
-add_executable(logger src/logger_main.cpp)
-target_link_libraries(logger ${PROJECT_NAME})
+add_executable(bumper_logger_node src/bumper_logger_main.cpp)
+target_link_libraries(bumper_logger_node ${PROJECT_NAME})
 
-add_executable(publisher src/publisher_main.cpp)
-target_link_libraries(publisher ${PROJECT_NAME})
-
-add_executable(subscriber src/subscriber_main.cpp)
-target_link_libraries(subscriber ${PROJECT_NAME})
-
-add_executable(pub_sub src/pub_sub_main.cpp)
-target_link_libraries(pub_sub ${PROJECT_NAME})
 
 install(TARGETS
   ${PROJECT_NAME}
-  logger
-  publisher
-  subscriber
-  pub_sub
-  EXPORT export_${PROJECT_NAME}
-  ARCHIVE DESTINATION lib
+  bumper_logger_node
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
+install (DIRECTORY include/
+  DESTINATION include/${PROJECT_NAME}
+)
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  set(ament_cmake_copyright_FOUND TRUE)
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
-
-ament_export_include_directories("include/${PROJECT_NAME}")
+ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
-ament_export_targets(export_${PROJECT_NAME})
 ament_export_dependencies(
   rclcpp
-  std_msgs
+  geometry_msgs
+  kobuki_ros_interfaces
 )
 ament_package()

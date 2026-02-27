@@ -13,20 +13,13 @@
 // limitations under the License.
 
 #include "rclcpp/rclcpp.hpp"
-#include "Practica2/LoggerNode.hpp"
+#include "Practica2/BumperLoggerNode.hpp"
 
-using namespace std::chrono_literals;
-
-LoggerNode::LoggerNode()
-: Node("logger_node")
+int main(int argc, char * argv[])
 {
-  counter_ = 0;
-  timer_ = create_wall_timer(
-    500ms, std::bind(&LoggerNode::timer_callback, this));
-}
-
-void
-LoggerNode::timer_callback()
-{
-  RCLCPP_INFO(get_logger(), "Hello %d", counter_++);
+  rclcpp::init(argc, argv);
+  auto node = std::make_shared<BumperLoggerNode>();
+  rclcpp::spin(node);
+  rclcpp::shutdown();
+  return 0;
 }
