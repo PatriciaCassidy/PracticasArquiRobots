@@ -1,3 +1,4 @@
+
 **PRACTICA 2**  
 **Paso 1: Identificar topics y tipos de mensajes**  
 <img width="549" height="595" alt="imagen" src="https://github.com/user-attachments/assets/0ea7bc44-c561-4627-9fb5-7f62183ad7a0" />  
@@ -6,3 +7,6 @@
 <img width="741" height="214" alt="imagen" src="https://github.com/user-attachments/assets/7905fa21-b806-42ea-85d9-7227abfc8c58" />  
 
 **Paso 2: Subscriptor que muestre cambios del bumper**  
+**Paso 3: Lazo de control con timer a 10 Hz**
+**Paso 4: Generación y publicación de velocidades**
+**Paso 5: Esquema de diseño (draw.io)**
