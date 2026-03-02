@@ -6,8 +6,8 @@
 <img width="459" height="83" alt="imagen" src="https://github.com/user-attachments/assets/997c72a4-9e2e-4b04-9bf6-1433f57c9514" />  
 <img width="741" height="214" alt="imagen" src="https://github.com/user-attachments/assets/7905fa21-b806-42ea-85d9-7227abfc8c58" />  
 
-**Paso 2: Subscriptor que muestre cambios del bumper**  
-**Paso 3: Lazo de control con timer a 10 Hz**  
+**Paso 2: Subscriptor que muestre cambios del bumper**(Código a parte)  
+**Paso 3: Lazo de control con timer a 10 Hz**(Código a parte)  
 **Paso 4: Generación y publicación de velocidades**  
 <img width="679" height="136" alt="image" src="https://github.com/user-attachments/assets/a88e2e14-c486-4a6d-849f-dc1036001338" />  
 
