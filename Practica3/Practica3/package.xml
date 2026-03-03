@@ -4,7 +4,7 @@
   <name>laser</name>
   <version>26.0.1</version>
   <description>Example for perception</description>
-  <maintainer email="fmrico@gmail.com">fmrico</maintainer>
+  <maintainer email="p.cassidy.2025@alumnos.urjc.es">p.cassidy</maintainer>
   <license>Apache License, Version 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

@@ -20,7 +20,7 @@ find_package(tf2_ros REQUIRED)
 include_directories(include)
 
 add_library(${PROJECT_NAME} SHARED
-  src/laser/ObstacleDetectorNode.cpp
+  src/laser/NearestObstacleNode.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -36,14 +36,14 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
   ${tf2_geometry_msgs_TARGETS}
 )
 
-add_executable(obstacle_detector src/obstacle_detector_main.cpp)
-target_link_libraries(obstacle_detector ${PROJECT_NAME})
+add_executable(nearest_obstacle src/nearest_obstacle_main.cpp)
+target_link_libraries(nearest_obstacle ${PROJECT_NAME})
 
 install(DIRECTORY config launch DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
   ${PROJECT_NAME}
-  obstacle_detector
+  nearest_obstacle
   EXPORT export_${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib

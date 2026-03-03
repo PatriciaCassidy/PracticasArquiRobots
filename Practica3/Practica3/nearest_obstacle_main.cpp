@@ -14,16 +14,16 @@
 
 #include <memory>
 
-#include "laser/ObstacleDetectorNode.hpp"
+#include "laser/NearestObstacleNode.hpp"
 #include "rclcpp/rclcpp.hpp"
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
 
-  auto node_detector = std::make_shared<laser::ObstacleDetectorNode>();
+  auto node = std::make_shared<laser::NearestObstacleNode>();
 
-  rclcpp::spin(node_detector);
+  rclcpp::spin(node);
 
   rclcpp::shutdown();
   return 0;

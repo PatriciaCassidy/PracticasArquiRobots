@@ -1,0 +1,8 @@
+# config/nearest_obstacle_params.yaml
+nearest_obstacle_node:
+  ros__parameters:
+    robot_frame: "base_link"
+    obstacle_frame: "nearest_obstacle"
+    range_min_threshold: 0.0
+    range_max_threshold: 10.0
+    enable_debug_output: true
