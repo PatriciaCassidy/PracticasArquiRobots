@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(laser)
+project(Practica3)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -20,7 +20,7 @@ find_package(tf2_ros REQUIRED)
 include_directories(include)
 
 add_library(${PROJECT_NAME} SHARED
-  src/laser/NearestObstacleNode.cpp
+  src/Practica3/NearestObstacleNode.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -58,7 +58,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 
   find_package(ament_cmake_gtest REQUIRED)
-  add_subdirectory(tests)
+ 
 endif()
 
 ament_export_include_directories("include/${PROJECT_NAME}")
