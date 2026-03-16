@@ -18,7 +18,7 @@
 #include <memory>
 #include <string>
 
-#include "laser/NearestObstacleNode.hpp"
+#include "Practica3/NearestObstacleNode.hpp"
 
 #include "geometry_msgs/msg/point_stamped.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"

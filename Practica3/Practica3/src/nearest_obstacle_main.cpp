@@ -14,14 +14,14 @@
 
 #include <memory>
 
-#include "laser/NearestObstacleNode.hpp"
+#include "Practica3/NearestObstacleNode.hpp"
 #include "rclcpp/rclcpp.hpp"
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
 
-  auto node = std::make_shared<laser::NearestObstacleNode>();
+  auto node = std::make_shared<Practica3::NearestObstacleNode>();
 
   rclcpp::spin(node);
 
