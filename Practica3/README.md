@@ -30,19 +30,20 @@ Requisitos:
 	nada.  	
   
   
-Para implementar un nodo ROS2 que procese los datos del láser (LaserScan) que **localize el obstáculo más cercano** y **publique su posición**
+Implemento un nodo ROS2 que procesa los datos del láser (LaserScan) que **localize el obstáculo más cercano** y **publique su posición**
  2D en el marco del robot mediante TF.
   
 Nodo:obstacle_detector_node
-	Suscripciones y publicaciones:
+	Suscripciones y publicaciones:  
 	-**Entrada**: sensor_msgs/msg/LaserScan  
 	-**Salida (posición)**: /nearest_obstacle  →  geometry_msgs/msg/PointStamped  
 	-**Salida (TF)**: TF propia asociada al obstáculo más cercano  
   
 **Implementación en C++**  
-El nodo se **suscribe** al LaserScan con QoS de sensor, filtra rangos inválidos (NaN, Inf, fuera de rango (range_min, range_max)), localiza el minimo y calcula calcula las coordenadas en el plano del sensor:  
+El nodo se **suscribe** al LaserScan con el sensor QoS, luego filtra rangos inválidos (NaN, Inf, fuera de rango (range_min, range_max)) y localiza el minimo; con todo eso ya calcula las coordenadas en el plano del sensor:  
   
   
+//
 	// Suscripción al láser (QoS sensor)  
 	laser_sub_ = create_subscription<sensor_msgs::msg::LaserScan>(  
   		"input_scan", rclcpp::SensorDataQoS().reliable(),
@@ -56,16 +57,42 @@ El nodo se **suscribe** al LaserScan con QoS de sensor, filtra rangos inválidos
   		if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) {  
     			if (r < min_range) { min_range = r; min_idx = i; }  
   		}  
+	}  
+	if (min_idx < 0) return;  // No hay rango válido, no publicar  
+  
+	float theta = scan.angle_min + min_idx * scan.angle_increment;  
+	float obs_x = min_range * std::cos(theta);  
+	float obs_y = min_range * std::sin(theta);  
+//
+  
+  
+**Transformación al marco del robot (TF)**  
+  
+Las coordenadas que he obtenido estan en el origen de coordenadas del sensor
+ (LaserScan.header.frame_id), para que las use el robot hay que pasarlas al
+  suyo (p.ej. base_link) usando el buffer TF con el instante del propio
+   mensaje:  
+   
+   
+//
+// Calcular índice y posición del obstáculo más cercano
+float min_range = std::numeric_limits<float>::infinity();
+int   min_idx   = -1;
+for (size_t i = 0; i < scan.ranges.size(); ++i) {
+  float r = scan.ranges[i];
+  if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) {
+    if (r < min_range) { min_range = r; min_idx = i; }
+  }
 }
-if (min_idx < 0) return;  // No hay rango válido, no publicar  
-  
-float theta = scan.angle_min + min_idx * scan.angle_increment;  
-float obs_x = min_range * std::cos(theta);  
-float obs_y = min_range * std::sin(theta);  
-  
-  
-**Transformación al marco del robot (TF)**
+if (min_idx < 0) return;  // No hay rango válido, no publicar
 
+float theta = scan.angle_min + min_idx * scan.angle_increment;
+float obs_x = min_range * std::cos(theta);
+float obs_y = min_range * std::sin(theta);
+//
+
+
+//
   
   
 **Paso 2: detección 2D de un objeto/persona**  
