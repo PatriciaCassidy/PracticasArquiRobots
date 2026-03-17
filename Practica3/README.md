@@ -235,7 +235,6 @@ regla.
 	imagen  
 	# Visualizar la máscara en RViz2 (publicar imagen filtrada 
 	en un topic debug)  
-//
   
   
 **Paso 3: detección 3D**  
@@ -258,6 +257,35 @@ puede publicarse como un marco hĳo (p.ej. target) respecto
 al marco óptico de la cámara o respecto a base_link, siempre que se
 indique claramente qué marcos se usan.  
   
+:+1:
+  
+**Descripción**  
+A parti de la detección 2D, más la imagen de profundidad y los 
+parametros de la cámara (CameraInfo), obtengo la posición 3D del 
+objeto detectado y la publicare como vision_msgs/msg/Detection3DArray.  
+  
+**Entradas y salidas**  
+	-**Entradas**: : vision_msgs/Detection2DArray  +  
+	sensor_msgs/Image (profundidad)  +  sensor_msgs/CameraInfo  
+	-**Salida**: /detection_3d  →  vision_msgs/msg/Detection3DArray.  
+	-**TF**: TF propia asociada al objeto/persona detectado (p.ej. "target")  
+  
+**Sincronización de mensajes**  
+La detección 2D y la imagen de profundidad llegan por topics
+distintos y con timestamps que no coinciden 
+exactamente. Uso message_filters con ApproximateTime:  
+  
+
+	depth_sub_ = std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Image>>(
+  this, "input_depth", rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
+detection_sub_ = std::make_shared<message_filters::Subscriber<vision_msgs::msg::Detection2DArray>>(
+  this, "input_detection_2d", rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
+
+sync_ = std::make_shared<message_filters::Synchronizer<MySyncPolicy>>(
+  MySyncPolicy(10), *depth_sub_, *detection_sub_);
+sync_->registerCallback(std::bind(&DetectionTo3DNode::callback_sync,
+  this, _1, _2));
+//
   
 **Paso 4: control de orientación hacia la detección**  
   
@@ -274,6 +302,7 @@ Se recomienda implementar el control angular como un PID sobre el
 error de orientación (por ejemplo, el ángulo hacia el objetivo en el marco
 del robot).  
   
+:+1: 
   
 **Paso 5: control de distancia (1-2m)**  
   
@@ -283,6 +312,7 @@ Se ampliará el nodo anterior para que el robot:
 	-Si el objeto/persona se acerca demasiado, el robot retroceda para
 	mantener la distancia.  
   
+:+1: 
   
 **Paso 6: evitación con el obstáculo más cercano**  
   
@@ -292,3 +322,7 @@ El robot deberá tener en cuenta /nearest_obstacle para evitar colisiones
 	angular o imponer una maniobra reactiva.  
 	-Debe demostrarse que el robot evita colisiones incluso cuando el
 	objetivo visual está “detrás” de un obstáculo.  
+  
+:+1: 
+  
+  
