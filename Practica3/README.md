@@ -276,15 +276,16 @@ distintos y con timestamps que no coinciden
 exactamente. Uso message_filters con ApproximateTime:  
   
 
-	depth_sub_ = std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Image>>(
-  this, "input_depth", rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
-detection_sub_ = std::make_shared<message_filters::Subscriber<vision_msgs::msg::Detection2DArray>>(
-  this, "input_detection_2d", rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
-
-sync_ = std::make_shared<message_filters::Synchronizer<MySyncPolicy>>(
-  MySyncPolicy(10), *depth_sub_, *detection_sub_);
-sync_->registerCallback(std::bind(&DetectionTo3DNode::callback_sync,
-  this, _1, _2));
+	depth_sub_ = 	std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Image>>(
+	  this, "input_depth", 	rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
+	detection_sub_ = 	std::make_shared<message_filters::Subscriber<vision_msgs::msg::Detection2DArray>>(
+	  this, "input_detection_2d", 	rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
+	
+	sync_ = 	std::make_shared<message_filters::Synchronizer<MySyncPolicy>>(
+	  MySyncPolicy(10), *depth_sub_, *detection_sub_);
+	sync_->registerCallback(std::bind(&DetectionTo3DNode::callback_sync,
+	  this, _1, _2));
+  
 //
   
 **Paso 4: control de orientación hacia la detección**  
