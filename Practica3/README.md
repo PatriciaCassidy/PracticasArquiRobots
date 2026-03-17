@@ -504,3 +504,11 @@ El robot deberá tener en cuenta /nearest_obstacle para evitar colisiones
 :+1: 
   
 **Descripción**  
+El robot debe combinar el seguimiento del objetivo y el evitar de 
+forma reactiva los obstáculos, usando la información del topic 
+/nearest_obstacle publicado en el Paso 1.  
+
+**Integración en el nodo de control**  
+El nodo de control se suscribe también a /nearest_obstacle y 
+modifica los comandos de velocidad cuando un obstáculo interfiere 
+con el seguimiento:  
