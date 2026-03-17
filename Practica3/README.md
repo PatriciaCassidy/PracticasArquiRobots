@@ -276,17 +276,73 @@ distintos y con timestamps que no coinciden
 exactamente. Uso message_filters con ApproximateTime:  
   
 
-	depth_sub_ = 	std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Image>>(
-	  this, "input_depth", 	rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
-	detection_sub_ = 	std::make_shared<message_filters::Subscriber<vision_msgs::msg::Detection2DArray>>(
-	  this, "input_detection_2d", 	rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());
+	depth_sub_ =  	std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Image>>(  
+	  this, "input_depth",  	rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());  
+	detection_sub_ =  	std::make_shared<message_filters::Subscriber<vision_msgs::msg::Detection2DArray>>(  
+	  this, "input_detection_2d",   	rclcpp::SensorDataQoS().reliable().get_rmw_qos_profile());  
 	
-	sync_ = 	std::make_shared<message_filters::Synchronizer<MySyncPolicy>>(
-	  MySyncPolicy(10), *depth_sub_, *detection_sub_);
-	sync_->registerCallback(std::bind(&DetectionTo3DNode::callback_sync,
-	  this, _1, _2));
+	sync_ = 	std::make_shared<message_filters::Synchronizer<MySyncPolicy>>(  
+	  MySyncPolicy(10), *depth_sub_, *detection_sub_);  
+	sync_->registerCallback(std::bind(&DetectionTo3DNode::callback_sync,  
+	  this, _1, _2));  
   
-//
+**Proyección pinhole: (u,v,Z) → (X,Y,Z)**  
+Se utiliza image_geometry::PinholeCameraModel para evitar manejar manualmente los intrínsecos:  
+
+	// Construir modelo a partir de CameraInfo
+	auto model = std::make_shared<image_geometry::PinholeCameraModel>();
+	model->fromCameraInfo(info);
+  
+	// Coordenadas del centro de la bbox 2D  
+	int u = static_cast<int>(det2d.bbox.center.position.x);  
+	int v = static_cast<int>(det2d.bbox.center.position.y);  
+  
+	// Leer profundidad Z (distinguir encoding 16UC1 vs 32FC1)  
+	float depth = 0.0f;  
+	if (depth_msg->encoding == "16UC1") {  
+		depth = depth_img.at<uint16_t>(cv::Point2d(u,v)) / 1000.0f; // mm -> m  
+	} else {  
+		depth = depth_img.at<float>(cv::Point2d(u,v));  
+	}  
+	if (!std::isfinite(depth) || depth <= 0) return;  // Descartar  
+  
+	// Proyectar a 3D  
+	cv::Point3d ray = model->projectPixelTo3dRay(model-	>rectifyPoint(cv::Point2d(u,v)));  
+	ray = ray / ray.z;  // Normalizar para que Z = 1  
+	cv::Point3d point = ray * depth;  // Escalar por profundidad  
+  
+**Publicar Detection3DArray y TF**  
+
+	vision_msgs::msg::Detection3D det3d_msg;  
+	det3d_msg.header = depth_msg->header;  
+	det3d_msg.bbox.center.position.x = point.x;  
+	det3d_msg.bbox.center.position.y = point.y;  
+	det3d_msg.bbox.center.position.z = point.z;  
+  
+	vision_msgs::msg::Detection3DArray arr3d_msg;  
+	arr3d_msg.header = det3d_msg.header;  
+	arr3d_msg.detections.push_back(det3d_msg);  
+	detection_3d_pub_->publish(arr3d_msg);  
+  
+	// Publicar TF del objeto detectado  
+	geometry_msgs::msg::TransformStamped tf_target;  
+	tf_target.header = det3d_msg.header;  
+	tf_target.child_frame_id = "target";  
+	tf_target.transform.translation.x = point.x;  
+	tf_target.transform.translation.y = point.y;  
+	tf_target.transform.translation.z = point.z;  
+	tf_target.transform.rotation.w = 1.0;  
+	tf_broadcaster_->sendTransform(tf_target);  
+  
+**Regla**: si en un instante dado no hay Detection2D (el detector 
+2D no ha publicado), este nodo tampoco publicará Detection3D.  
+  
+**Validación**  
+
+	ros2 topic echo /detection_3d
+	# Visualizar en RViz2 → añadir Marker o Pose desde /detection_3d
+	ros2 run tf2_ros tf2_echo base_link target
+  
   
 **Paso 4: control de orientación hacia la detección**  
   
@@ -304,6 +360,70 @@ error de orientación (por ejemplo, el ángulo hacia el objetivo en el marco
 del robot).  
   
 :+1: 
+  
+**Descripción**  
+Implemento un nodo de control que reciba la detección 3D y genere
+la velocidad angular necesaria para orientar el robot hacia el 
+objetivo. Publica comandos de velocidad en /cmd_vel.  
+
+**Nodo: orientation_controller_node**  
+**Suscripciones y publicaciones**  
+	-**Entrada**: vision_msgs/msg/Detection3DArray  (/detection_3d).  
+	-**Salida**: /cmd_vel  →  geometry_msgs/msg/Twist.  
+  
+**Control PID angular**  
+Se implementa un PID sobre el ángulo de error. El ángulo hacia el 
+objetivo en el marco del robot se calcula como atan2(y, x) a 
+partir 
+de la posición 3D de la detección:  
+
+	// Obtener posición del objetivo en el frame del robot  
+	// (la Detection3D ya viene en el frame de la cámara;  
+	//  transformar a base_link si es necesario)  
+	double target_x = detection.bbox.center.position.x;  
+	double target_y = detection.bbox.center.position.y;  
+  
+	// Ángulo de error  
+	double angle_error = std::atan2(target_y, target_x);  
+  
+	// PID angular (simplificado: solo término P)  
+	double kp_angular = 1.2;  // Parámetro ajustable  
+	double omega = kp_angular * angle_error;  
+  
+	// Publicar velocidad  
+	geometry_msgs::msg::Twist cmd;  
+	cmd.angular.z = omega;  
+	cmd_vel_pub_->publish(cmd);  
+  
+**Comportamiento sin detección**  
+Si no hay detección, el robot debe girar hacia un lado buscando el 
+objetivo:  
+
+	if (detection_3d_array.detections.empty()) {  
+		// Girar lentamente buscando el objetivo  
+		geometry_msgs::msg::Twist cmd;  
+		cmd.angular.z = search_angular_speed_;  // p.ej. 0.3 rad/s  
+		cmd_vel_pub_->publish(cmd);  
+		return;  
+	}  
+  
+**Parámetros YAML**  
+
+	orientation_controller_node:  
+	  ros__parameters:  
+	    use_sim_time: true  
+	    kp_angular: 1.2  
+	    ki_angular: 0.0  
+	    kd_angular: 0.1  
+	    search_angular_speed: 0.3  
+	    max_angular_speed: 1.0  
+  
+**Validación**  
+
+	ros2 topic echo /cmd_vel  
+	# El robot debe orientarse hacia el objeto en RViz2 / simulador  
+	# Verificar que cmd.angular.z ≈ 0 cuando el objeto está centrado  
+  
   
 **Paso 5: control de distancia (1-2m)**  
   
