@@ -75,22 +75,63 @@ Las coordenadas que he obtenido estan en el origen de coordenadas del sensor
    
    
 //
-// Calcular índice y posición del obstáculo más cercano
-float min_range = std::numeric_limits<float>::infinity();
-int   min_idx   = -1;
-for (size_t i = 0; i < scan.ranges.size(); ++i) {
-  float r = scan.ranges[i];
-  if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) {
-    if (r < min_range) { min_range = r; min_idx = i; }
-  }
-}
-if (min_idx < 0) return;  // No hay rango válido, no publicar
-
-float theta = scan.angle_min + min_idx * scan.angle_increment;
-float obs_x = min_range * std::cos(theta);
-float obs_y = min_range * std::sin(theta);
-//
-
+// Calcular índice y posición del obstáculo más cercano  
+float min_range = std::numeric_limits<float>::infinity();  
+int   min_idx   = -1;  
+for (size_t i = 0; i < scan.ranges.size(); ++i) {  
+  float r = scan.ranges[i];  
+  if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) {  
+    if (r < min_range) { min_range = r; min_idx = i; }  
+  }  
+}  
+if (min_idx < 0) return;  // No hay rango válido, no publicar  
+  
+float theta = scan.angle_min + min_idx * scan.angle_increment;  
+float obs_x = min_range * std::cos(theta);  
+float obs_y = min_range * std::sin(theta);  
+//  
+  
+**Publico la TF propia del obstaculo**
+  
+  
+//  
+geometry_msgs::msg::TransformStamped tf_msg;  
+tf_msg.header.stamp = scan.header.stamp;  
+tf_msg.header.frame_id = "base_link";  
+tf_msg.child_frame_id  = "nearest_obstacle";  
+tf_msg.transform.translation.x = obstacle_point_base.point.x;  
+tf_msg.transform.translation.y = obstacle_point_base.point.y;  
+tf_msg.transform.translation.z = 0.0;  
+tf_msg.transform.rotation.w = 1.0;  
+tf_broadcaster_->sendTransform(tf_msg);  
+//  
+  
+  
+**Requisitos de la entrega**  
+  
+	-El PointStamped publicado en /nearest_obstacle debe tener 
+	header.frame_id = "base_link" (o el marco del robot 
+	elegido).  
+	-El header.stamp debe ser coherente con el LaserScan de 
+	entrada.  
+	-La TF publicada debe tener el mismo instante de tiempo que
+	el LaserScan y usar "nearest_obstacle" como marco hijo.  
+	-Si no existe ningún rango válido, no se publica nada.  
+	-Si la transformación TF necesaria no está disponible, no 
+	se publica nada.  
+  
+  
+**Validación**  
+  
+  
+//  
+# Ver el topic  
+ros2 topic echo /nearest_obstacle  
+  
+# Ver la TF en RViz2 → añadir display TF  
+# o consultar desde terminal:  
+ros2 run tf2_ros tf2_echo base_link nearest_obstacle  
+//  
 
 //
   
