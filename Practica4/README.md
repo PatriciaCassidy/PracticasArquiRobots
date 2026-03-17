@@ -24,16 +24,16 @@ grafo de transformadas.
 Confirmar la presencia de los marcos odom, base_link y
 base_scan (o equivalentes según el robot).  
   
-# Ver topics disponibles cuando Nav2 está en ejecución  
+Ver topics disponibles cuando Nav2 está en ejecución  
 ros2 topic list  
 
-# Ver acciones disponibles  
+Ver acciones disponibles  
 ros2 action list  
 
-# Ver tipo de la acción NavigateToPose  
+Ver tipo de la acción NavigateToPose  
 ros2 action info /navigate_to_pose  
 
-# Ver estructura del mensaje de la acción  
+Ver estructura del mensaje de la acción  
 ros2 interface show nav2_msgs/action/NavigateToPose  
 
 // navigation_client.hpp
