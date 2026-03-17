@@ -435,6 +435,63 @@ Se ampliará el nodo anterior para que el robot:
   
 :+1: 
   
+**Descripción**  
+Ampliar el nodo de control anterior para que, además de 
+orientarse, 
+el robot se acerque o aleje del objetivo para mantenerlo a una 
+distancia de entre 1 y 2 metros.  
+  
+**Control PID de velocidad lineal**  
+La distancia al objetivo se obtiene directamente de la coordenada Z 
+(profundidad) de la detección 3D. El error de distancia se usa para 
+generar la velocidad lineal:  
+
+	double target_distance = detection.bbox.center.position.z;  
+	double distance_goal   = 1.5;  // Distancia objetivo en metros  
+	double distance_error  = target_distance - distance_goal;  
+  
+	// PID lineal  
+	double kp_linear = 0.5;  
+	double vx = kp_linear * distance_error;  
+  
+	// Limitar velocidad lineal  
+	vx = std::clamp(vx, -max_linear_speed_, max_linear_speed_);  
+
+	// Publicar Twist combinado  
+	geometry_msgs::msg::Twist cmd;  
+	cmd.linear.x  = vx;  
+	cmd.angular.z = omega;  // Del paso 4  
+	cmd_vel_pub_->publish(cmd);  
+  
+**Comportamiento ante acercamiento excesivo**  
+	-Si el objeto se acerca demasiado (distance_error < 0), el 
+	robot retrocede (vx < 0).  
+	-La distancia objetivo se configura via parámetro 
+	(distance_goal, p.ej. 1.5 m).  
+	-Los límites de velocidad se definen como parámetros 
+	YAML.  
+  
+**Parámetros YAML adicionales**  
+
+	orientation_controller_node:  
+	  ros__parameters:  
+	    # ... parámetros del paso 4 ...  
+	    kp_linear: 0.5  
+	    ki_linear: 0.0  
+	    kd_linear: 0.05  
+	    distance_goal: 1.5  
+	    max_linear_speed: 0.4  
+  
+**Validación**  
+
+	# El robot debe mantenerse a ~1.5 m del objeto  
+	# Avanzar si el objeto está lejos, retroceder si está 
+	demasiado cerca  
+	ros2 topic echo /cmd_vel  
+	# Verificar que cmd.linear.x ≈ 0 cuando la distancia es 
+	~1.5 m  
+  
+  
 **Paso 6: evitación con el obstáculo más cercano**  
   
 El robot deberá tener en cuenta /nearest_obstacle para evitar colisiones
@@ -446,4 +503,4 @@ El robot deberá tener en cuenta /nearest_obstacle para evitar colisiones
   
 :+1: 
   
-  
+**Descripción**  
