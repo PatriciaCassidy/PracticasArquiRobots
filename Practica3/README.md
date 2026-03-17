@@ -43,7 +43,8 @@ Nodo:obstacle_detector_node
 El nodo se **suscribe** al LaserScan con el sensor QoS, luego filtra rangos inválidos (NaN, Inf, fuera de rango (range_min, range_max)) y localiza el minimo; con todo eso ya calcula las coordenadas en el plano del sensor:  
   
   
-//
+//  
+
 	// Suscripción al láser (QoS sensor)  
 	laser_sub_ = create_subscription<sensor_msgs::msg::LaserScan>(  
   		"input_scan", rclcpp::SensorDataQoS().reliable(),
@@ -75,20 +76,21 @@ Las coordenadas que he obtenido estan en el origen de coordenadas del sensor
    
    
 //
-// Calcular índice y posición del obstáculo más cercano  
-float min_range = std::numeric_limits<float>::infinity();  
-int   min_idx   = -1;  
-for (size_t i = 0; i < scan.ranges.size(); ++i) {  
-  float r = scan.ranges[i];  
-  if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) {  
-    if (r < min_range) { min_range = r; min_idx = i; }  
-  }  
-}  
-if (min_idx < 0) return;  // No hay rango válido, no publicar  
-  
-float theta = scan.angle_min + min_idx * scan.angle_increment;  
-float obs_x = min_range * std::cos(theta);  
-float obs_y = min_range * std::sin(theta);  
+
+	// Calcular índice y posición del obstáculo más cercano  
+	float min_range = std::numeric_limits<float>::infinity();  
+	int   min_idx   = -1;  
+	for (size_t i = 0; i < scan.ranges.size(); ++i) {  
+  		float r = scan.ranges[i];  
+  		if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) {  
+    			if (r < min_range) { min_range = r; min_idx = i; }  
+  		}  
+	}  
+	if (min_idx < 0) return;  // No hay rango válido, no publicar  
+	  
+	float theta = scan.angle_min + min_idx * scan.angle_increment;  
+	float obs_x = min_range * std::cos(theta);  
+	float obs_y = min_range * std::sin(theta);  
 //  
   
 **Publico la TF propia del obstaculo**
