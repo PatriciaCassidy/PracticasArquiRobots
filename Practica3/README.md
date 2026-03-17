@@ -75,7 +75,6 @@ Las coordenadas que he obtenido estan en el origen de coordenadas del sensor
    mensaje:  
    
    
-//
 
 	// Calcular índice y posición del obstáculo más cercano  
 	float min_range = std::numeric_limits<float>::infinity();  
@@ -91,26 +90,23 @@ Las coordenadas que he obtenido estan en el origen de coordenadas del sensor
 	float theta = scan.angle_min + min_idx * scan.angle_increment;  
 	float obs_x = min_range * std::cos(theta);  
 	float obs_y = min_range * std::sin(theta);  
-//  
+ 
   
 **Publico la TF propia del obstaculo**
   
-  
-//  
-geometry_msgs::msg::TransformStamped tf_msg;  
-tf_msg.header.stamp = scan.header.stamp;  
-tf_msg.header.frame_id = "base_link";  
-tf_msg.child_frame_id  = "nearest_obstacle";  
-tf_msg.transform.translation.x = obstacle_point_base.point.x;  
-tf_msg.transform.translation.y = obstacle_point_base.point.y;  
-tf_msg.transform.translation.z = 0.0;  
-tf_msg.transform.rotation.w = 1.0;  
-tf_broadcaster_->sendTransform(tf_msg);  
-//  
+
+	geometry_msgs::msg::TransformStamped tf_msg;  
+	tf_msg.header.stamp = scan.header.stamp;  
+	tf_msg.header.frame_id = "base_link";  
+	tf_msg.child_frame_id  = "nearest_obstacle";  
+	tf_msg.transform.translation.x = obstacle_point_base.point.x;  
+	tf_msg.transform.translation.y = obstacle_point_base.point.y;  
+	tf_msg.transform.translation.z = 0.0;  
+	tf_msg.transform.rotation.w = 1.0;  
+	tf_broadcaster_->sendTransform(tf_msg);    
   
   
 **Requisitos de la entrega**  
-  
 	-El PointStamped publicado en /nearest_obstacle debe tener 
 	header.frame_id = "base_link" (o el marco del robot 
 	elegido).  
@@ -124,16 +120,13 @@ tf_broadcaster_->sendTransform(tf_msg);
   
   
 **Validación**  
-  
-  
-//  
-# Ver el topic  
-ros2 topic echo /nearest_obstacle  
-  
-# Ver la TF en RViz2 → añadir display TF  
-# o consultar desde terminal:  
-ros2 run tf2_ros tf2_echo base_link nearest_obstacle  
-//  
+
+	# Ver el topic  
+	ros2 topic echo /nearest_obstacle  
+	  
+	# Ver la TF en RViz2 → añadir display TF  
+	# o consultar desde terminal:  
+	ros2 run tf2_ros tf2_echo base_link nearest_obstacle  
 
 //
   
@@ -192,7 +185,7 @@ error de orientación (por ejemplo, el ángulo hacia el objetivo en el marco
 del robot).  
   
   
-**Paso 5: control de distancia (1-2m)**
+**Paso 5: control de distancia (1-2m)**  
   
 Se ampliará el nodo anterior para que el robot:  
 	-Se acerque al objeto/persona hasta una distancia objetivo (entre 1 y
@@ -205,7 +198,6 @@ Se ampliará el nodo anterior para que el robot:
   
 El robot deberá tener en cuenta /nearest_obstacle para evitar colisiones
 **cuando el obstáculo interfiera en el seguimiento**. En particular:  
-
 	-La evitación puede inhibir el avance, modificar la velocidad
 	angular o imponer una maniobra reactiva.  
 	-Debe demostrarse que el robot evita colisiones incluso cuando el
