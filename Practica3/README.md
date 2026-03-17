@@ -30,6 +30,8 @@ Requisitos:
 	nada.  	
   
   
+:+1:  
+  
 Implemento un nodo ROS2 que procesa los datos del láser (LaserScan) que **localize el obstáculo más cercano** y **publique su posición**
  2D en el marco del robot mediante TF.
   
@@ -43,7 +45,6 @@ Nodo:obstacle_detector_node
 El nodo se **suscribe** al LaserScan con el sensor QoS, luego filtra rangos inválidos (NaN, Inf, fuera de rango (range_min, range_max)) y localiza el minimo; con todo eso ya calcula las coordenadas en el plano del sensor:  
   
   
-//  
 
 	// Suscripción al láser (QoS sensor)  
 	laser_sub_ = create_subscription<sensor_msgs::msg::LaserScan>(  
@@ -64,7 +65,6 @@ El nodo se **suscribe** al LaserScan con el sensor QoS, luego filtra rangos inv�
 	float theta = scan.angle_min + min_idx * scan.angle_increment;  
 	float obs_x = min_range * std::cos(theta);  
 	float obs_y = min_range * std::sin(theta);  
-//
   
   
 **Transformación al marco del robot (TF)**  
@@ -128,7 +128,6 @@ Las coordenadas que he obtenido estan en el origen de coordenadas del sensor
 	# o consultar desde terminal:  
 	ros2 run tf2_ros tf2_echo base_link nearest_obstacle  
 
-//
   
   
 **Paso 2: detección 2D de un objeto/persona**  
@@ -146,6 +145,97 @@ El alumno puede escoger el método:
 
 Regla importante: si no se detecta nada, no se publica nada.  
 
+  
+:+1:  
+  
+**Descripción**  
+Implemento un nodo que reciba imágenes de la cámara, detecte el
+ objeto de interes y publique la detección 2D (bounding box +
+ centro) como vision_msgs/msg/Detection2DArray.  
+  
+**Métodos de detección disponibles**  
+	-**Segmentación por color en HSV** (recomendado).  
+	-**Deep Learning** (p.ej. wrapper tipo Yolo_ROS si está
+	 disponible en el entorno).  
+  
+**Nodo: hsv_detector_node (método HSV)**  
+  
+**Suscripciones y publicaciones**  
+	-**Entrada**: sensor_msgs/msg/Image  (topic configurable
+	via remapping).  
+	-**Salida**: /detection_2d  →  vision_msgs/msg/Detection2DArray  
+  
+**Pipeline de procesamiento**  
+**1.** Convertir Imagen → cv::Mat con cv_bridge (BGR8).  
+**2.** Convertir BGR → HSV con cvtColor.  
+**3.** Aplicar umbral de color con inRange (parámetros H/S/V min y 
+max desde YAML).  
+**4.** Calcular momentos y bounding rect de la máscara.  
+**5.** Publicar Detection2DArray solo si se detecta algo.  
+
+	// 1. Image -> cv::Mat  
+	cv_bridge::CvImagePtr cv_ptr;  
+	try {  
+		cv_ptr = cv_bridge::toCvCopy(image,  
+		sensor_msgs::image_encodings::BGR8);  
+	} catch (cv_bridge::Exception & e) { return; }  
+	cv::Mat & img_bgr = cv_ptr->image;  
+  
+	// 2. BGR -> HSV  
+	cv::Mat img_hsv, mask;  
+	cv::cvtColor(img_bgr, img_hsv, cv::COLOR_BGR2HSV);  
+  
+	// 3. Umbral HSV (parámetros desde YAML)  
+	cv::inRange(img_hsv,  
+		cv::Scalar(h_min_, s_min_, v_min_),  
+		cv::Scalar(h_max_, s_max_, v_max_), mask);  
+  
+	// 4. Bounding rect  
+	auto moments = cv::moments(mask, true);  
+	if (moments.m00 < 100) return;  // Nada detectado, no
+	publicar  
+	auto bbx = cv::boundingRect(mask);  
+  
+	// 5. Publicar Detection2DArray  
+	vision_msgs::msg::Detection2D det_msg;  
+	det_msg.header.frame_id = image->header.frame_id;  
+	det_msg.header.stamp    = image->header.stamp;  
+	det_msg.bbox.center.position.x = bbx.x + bbx.width  /
+	2.0;  
+	det_msg.bbox.center.position.y = bbx.y + bbx.height /
+	2.0;  
+	det_msg.bbox.size_x = bbx.width;  
+	det_msg.bbox.size_y = bbx.height;  
+  
+	vision_msgs::msg::Detection2DArray arr_msg;  
+	arr_msg.header = det_msg.header;  
+	arr_msg.detections.push_back(det_msg);  
+	detection_pub_->publish(arr_msg);  
+  
+**Parámetros YAML (config/params.yaml)**  
+
+	hsv_detector_node:  
+		ros__parameters:  
+    			use_sim_time: true  
+    			h_min: 35  
+    			h_max: 85  
+    			s_min: 50  
+    			s_max: 255  
+    			v_min: 50  
+    			v_max: 255  
+  
+**Regla importante**: si no se detecta nada, no se publica nada.
+El nodo aguas abajo (detección 3D) también debe respetar esta
+regla.  
+  
+**Validación**  
+
+	ros2 topic echo /detection_2d  
+	# Verificar que bbox.center y size son coherentes con la 
+	imagen  
+	# Visualizar la máscara en RViz2 (publicar imagen filtrada 
+	en un topic debug)  
+//
   
   
 **Paso 3: detección 3D**  
