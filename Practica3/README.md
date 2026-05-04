@@ -30,8 +30,6 @@ Requisitos:
 	nada.  	
   
   
-:+1:  
-  
 Implemento un nodo ROS2 que procesa los datos del láser (LaserScan) que **localize el obstáculo más cercano** y **publique su posición**
  2D en el marco del robot mediante TF.
   
@@ -146,7 +144,7 @@ El alumno puede escoger el método:
 Regla importante: si no se detecta nada, no se publica nada.  
 
   
-:+1:  
+
   
 **Descripción**  
 Implemento un nodo que reciba imágenes de la cámara, detecte el
@@ -257,7 +255,7 @@ puede publicarse como un marco hĳo (p.ej. target) respecto
 al marco óptico de la cámara o respecto a base_link, siempre que se
 indique claramente qué marcos se usan.  
   
-:+1:
+
   
 **Descripción**  
 A parti de la detección 2D, más la imagen de profundidad y los 
@@ -359,7 +357,7 @@ Se recomienda implementar el control angular como un PID sobre el
 error de orientación (por ejemplo, el ángulo hacia el objetivo en el marco
 del robot).  
   
-:+1: 
+
   
 **Descripción**  
 Implemento un nodo de control que reciba la detección 3D y genere
@@ -433,7 +431,6 @@ Se ampliará el nodo anterior para que el robot:
 	-Si el objeto/persona se acerca demasiado, el robot retroceda para
 	mantener la distancia.  
   
-:+1: 
   
 **Descripción**  
 Ampliar el nodo de control anterior para que, además de 
@@ -501,7 +498,6 @@ El robot deberá tener en cuenta /nearest_obstacle para evitar colisiones
 	-Debe demostrarse que el robot evita colisiones incluso cuando el
 	objetivo visual está “detrás” de un obstáculo.  
   
-:+1: 
   
 **Descripción**  
 El robot debe combinar el seguimiento del objetivo y el evitar de 
