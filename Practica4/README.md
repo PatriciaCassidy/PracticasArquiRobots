@@ -12,22 +12,8 @@ La arquitectura separa claramente:
 
 ## Estructura del paquete
 
-```
-patrol_fsm/
-├── CMakeLists.txt
-├── package.xml
-├── config/
-│   └── patrol_params.yaml
-├── include/patrol_fsm/
-│   ├── patrol_fsm_node.hpp
-│   └── patrol_states.hpp
-├── launch/
-│   └── patrol_simulation.launch.py
-└── src/
-    ├── patrol_fsm_main.cpp
-    ├── patrol_fsm_node.cpp
-    └── patrol_states.cpp
-```
+<img width="769" height="434" alt="image" src="https://github.com/user-attachments/assets/1d55d513-f1e7-41e1-9e3a-39a0e578f06f" />
+
 
 ---
 
