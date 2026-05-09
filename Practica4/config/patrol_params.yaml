@@ -1,0 +1,4 @@
+patrol_fsm_node:
+  ros__parameters:
+    max_retries: 3
+    goal_timeout: 120.0
