@@ -1,0 +1,17 @@
+[31mCMake Error at CMakeLists.txt:20 (find_package):
+  By not providing "Findsimple_hri_interfaces.cmake" in CMAKE_MODULE_PATH
+  this project has asked CMake to find a package configuration file provided
+  by "simple_hri_interfaces", but CMake did not find one.
+
+  Could not find a package configuration file provided by
+  "simple_hri_interfaces" with any of the following names:
+
+    simple_hri_interfacesConfig.cmake
+    simple_hri_interfaces-config.cmake
+
+  Add the installation prefix of "simple_hri_interfaces" to CMAKE_PREFIX_PATH
+  or set "simple_hri_interfaces_DIR" to a directory containing one of the
+  above files.  If "simple_hri_interfaces" provides a separate development
+  package or SDK, be sure it has been installed.
+
+[0m

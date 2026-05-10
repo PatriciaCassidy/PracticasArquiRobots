@@ -1,0 +1,52 @@
+[0.014s] Invoking command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot
+[0.476s] -- The C compiler identification is GNU 13.3.0
+[1.497s] -- The CXX compiler identification is GNU 13.3.0
+[2.386s] -- Detecting C compiler ABI info
+[2.763s] -- Detecting C compiler ABI info - done
+[2.772s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.772s] -- Detecting C compile features
+[2.773s] -- Detecting C compile features - done
+[2.885s] -- Detecting CXX compiler ABI info
+[3.196s] -- Detecting CXX compiler ABI info - done
+[3.204s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.204s] -- Detecting CXX compile features
+[3.205s] -- Detecting CXX compile features - done
+[3.226s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.369s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[3.451s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[3.518s] -- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)
+[3.834s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[3.853s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[3.878s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.902s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.998s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[4.002s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[4.091s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[4.422s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[4.632s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.911s] -- Found rclcpp_action: 28.1.16 (/opt/ros/jazzy/share/rclcpp_action/cmake)
+[4.976s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[4.998s] -- Found std_srvs: 5.3.6 (/opt/ros/jazzy/share/std_srvs/cmake)
+[5.023s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[5.070s] -- Found nav2_msgs: 1.3.10 (/opt/ros/jazzy/share/nav2_msgs/cmake)
+[5.187s] -- Found tf2_ros: 0.36.19 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[5.295s] -- Found behaviortree_cpp: 4.8.3 (/opt/ros/jazzy/share/behaviortree_cpp/cmake)
+[6.917s] [31mCMake Error at CMakeLists.txt:20 (find_package):
+[6.917s]   By not providing "Findsimple_hri_interfaces.cmake" in CMAKE_MODULE_PATH
+[6.917s]   this project has asked CMake to find a package configuration file provided
+[6.917s]   by "simple_hri_interfaces", but CMake did not find one.
+[6.918s] 
+[6.918s]   Could not find a package configuration file provided by
+[6.918s]   "simple_hri_interfaces" with any of the following names:
+[6.918s] 
+[6.918s]     simple_hri_interfacesConfig.cmake
+[6.918s]     simple_hri_interfaces-config.cmake
+[6.918s] 
+[6.918s]   Add the installation prefix of "simple_hri_interfaces" to CMAKE_PREFIX_PATH
+[6.918s]   or set "simple_hri_interfaces_DIR" to a directory containing one of the
+[6.918s]   above files.  If "simple_hri_interfaces" provides a separate development
+[6.918s]   package or SDK, be sure it has been installed.
+[6.918s] 
+[6.918s] [0m
+[6.918s] -- Configuring incomplete, errors occurred!
+[6.927s] Invoked command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot
