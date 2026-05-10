@@ -12,22 +12,8 @@ La arquitectura separa claramente:
 
 ## Estructura del paquete
 
-```
-patrol_fsm/
-├── CMakeLists.txt
-├── package.xml
-├── config/
-│   └── patrol_params.yaml
-├── include/patrol_fsm/
-│   ├── patrol_fsm_node.hpp
-│   └── patrol_states.hpp
-├── launch/
-│   └── patrol_simulation.launch.py
-└── src/
-    ├── patrol_fsm_main.cpp
-    ├── patrol_fsm_node.cpp
-    └── patrol_states.cpp
-```
+<img width="769" height="434" alt="image" src="https://github.com/user-attachments/assets/1d55d513-f1e7-41e1-9e3a-39a0e578f06f" />
+
 
 ---
 
@@ -35,33 +21,10 @@ patrol_fsm/
 
 ### 1.1 Lanzar el entorno de simulación
 
-Abre tres terminales. En la primera, lanza la simulación con Gazebo:
-
-```bash
-cd ~/ArquiRobots/ros2_ws
-source install/setup.bash
-ros2 launch kobuki simulation.launch.py
-```
-
-En la segunda, lanza Nav2 con el mapa:
-
-```bash
-cd ~/ArquiRobots/ros2_ws
-source install/setup.bash
-ros2 launch kobuki navigation.launch.py
-```
-
-O en una sola terminal con el launch combinado:
-
-```bash
-ros2 launch kobuki navigation_sim.launch.py
-```
 
 ### 1.2 Verificar topics relevantes
 
-```bash
-ros2 topic list
-```
+
 
 Topics principales del sistema:
 - `/scan` — sensor láser
@@ -71,47 +34,30 @@ Topics principales del sistema:
 
 ### 1.3 Verificar transformadas
 
-```bash
-ros2 run tf2_tools view_frames
-```
 
-Marcos esperados: `odom`, `base_link`, `base_scan` (o equivalentes según el robot Kobuki).
+
+
 
 ### 1.4 Ver acciones disponibles cuando Nav2 está activo
 
-```bash
-ros2 action list
-ros2 action info /navigate_to_pose
-ros2 interface show nav2_msgs/action/NavigateToPose
-```
 
----
 
 ## Paso 2: Capacidad de navegación con Nav2
 
 ### 2.1 Verificar que Nav2 está disponible
 
-```bash
-ros2 action list | grep navigate_to_pose
-```
 
-Debe aparecer `/navigate_to_pose`.
 
 ### 2.2 Establecer la pose inicial del robot
 
-En RViz2, usar la herramienta **"2D Pose Estimate"** para indicar la posición y orientación aproximada del robot en el mapa. Las partículas del localizador (AMCL) deben converger hacia la pose correcta.
+
 
 ### 2.3 Validar navegación manual
 
-En RViz2, usar la herramienta **"Nav2 Goal"** para enviar objetivos de navegación manualmente y verificar que el robot navega correctamente y evita obstáculos.
 
 ### 2.4 Interfaz NavigationClient utilizada
 
-El paquete `nav2_example` proporciona la clase `NavigationClient` que encapsula la comunicación con Nav2. En `patrol_fsm_node.cpp` se instancia así:
 
-```cpp
-nav_client_ = std::make_shared<NavigationClient>();
-```
 
 Métodos utilizados en este paquete:
 
@@ -226,39 +172,22 @@ Cuando un objetivo falla o supera el timeout:
 ## Lanzar el sistema completo
 
 **Terminal 1 — Simulación:**
-```bash
-cd ~/ArquiRobots/ros2_ws && source install/setup.bash
-ros2 launch kobuki simulation.launch.py
-```
+
 
 **Terminal 2 — Nav2:**
-```bash
-cd ~/ArquiRobots/ros2_ws && source install/setup.bash
-ros2 launch kobuki navigation.launch.py
-```
+
 
 **Terminal 3 — FSM de patrullaje:**
-```bash
-cd ~/ArquiRobots/ros2_ws && source install/setup.bash
-ros2 launch patrol_fsm patrol_simulation.launch.py
-```
+
 
 **Terminal 4 — Monitorizar estado (opcional):**
-```bash
-ros2 topic echo /patrol_state
-```
+
 
 ---
 
 ## Compilación
 
-```bash
-cd ~/ArquiRobots/ros2_ws
-colcon build --packages-select nav2_example
-source install/setup.bash
-colcon build --packages-select patrol_fsm --symlink-install
-source install/setup.bash
-```
+
 
 ---
 
