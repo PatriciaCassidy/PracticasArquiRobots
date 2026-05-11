@@ -1,0 +1,12 @@
+waiter_bt:
+  ros__parameters:
+    use_sim_time: true
+    kitchen_x: 2.0
+    kitchen_y: 5.0
+    kitchen_yaw: 0.0
+    client_x: 2.0
+    client_y: -2.0
+    client_yaw: 0.0
+    home_x: -2.0
+    home_y: 0.0
+    home_yaw: 0.0

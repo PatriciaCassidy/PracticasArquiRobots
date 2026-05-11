@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="WaiterMission">
+  <BehaviorTree ID="WaiterMission">
+    <!-- Main Sequence for waiter mission -->
+    <Sequence name="WaiterCycle">
+      
+      <!-- Step 1: Wait at home position -->
+      <Sequence name="WaitAtHome">
+        <SayTextClient text="Esperando en la posición inicial" />
+        <NavigateToPose 
+          x="{home_x}" 
+          y="{home_y}" 
+          yaw="{home_yaw}" />
+        <SayTextClient text="En posición de espera" />
+      </Sequence>
+      
+      <!-- Step 2: Wait for client (simulated with sleep) -->
+      <Sequence name="WaitForClient">
+        <SayTextClient text="Esperando a que un cliente se acerque" />
+        <!-- Sleep decorator to simulate waiting -->
+        <Timeout duration="3">
+          <AlwaysSuccess />
+        </Timeout>
+        <SayTextClient text="¡Cliente detectado!" />
+      </Sequence>
+      
+      <!-- Step 3: Greet and take order -->
+      <Sequence name="TakeOrder">
+        <SayTextClient text="¡Hola! Soy su camarero robot. ¿Qué desea beber y comer?" />
+        
+        <!-- Listen for the beverage -->
+        <Sequence name="GetBeverage">
+          <SayTextClient text="¿Qué bebida desea?" />
+          <RetryUntilSuccessful max_retries="3">
+            <Sequence name="ListenForBeverage">
+              <ListenTextClient recognized_text="{recognized_text}" />
+              <ExtractInfoClient 
+                interest="bebida" 
+                full_text="{recognized_text}" 
+                extracted_info="{bebida}" />
+            </Sequence>
+          </RetryUntilSuccessful>
+          <SayTextClient text="Bebida {bebida} anotada" />
+        </Sequence>
+        
+        <!-- Listen for the food -->
+        <Sequence name="GetFood">
+          <SayTextClient text="¿Qué comida desea?" />
+          <RetryUntilSuccessful max_retries="3">
+            <Sequence name="ListenForFood">
+              <ListenTextClient recognized_text="{recognized_text}" />
+              <ExtractInfoClient 
+                interest="comida" 
+                full_text="{recognized_text}" 
+                extracted_info="{comida}" />
+            </Sequence>
+          </RetryUntilSuccessful>
+          <SayTextClient text="Comida {comida} anotada" />
+        </Sequence>
+        
+        <SayTextClient text="Pedido completo: {bebida} y {comida}. Voy a la cocina" />
+      </Sequence>
+      
+      <!-- Step 4: Go to kitchen -->
+      <Sequence name="GoToKitchen">
+        <SayTextClient text="Yendo a la cocina" />
+        <NavigateToPose 
+          x="{kitchen_x}" 
+          y="{kitchen_y}" 
+          yaw="{kitchen_yaw}" />
+        <SayTextClient text="Llegando a la cocina" />
+      </Sequence>
+      
+      <!-- Step 5: Pick up order (simulated) -->
+      <Sequence name="PickUpOrder">
+        <SayTextClient text="Recogiendo pedido: {bebida} y {comida}" />
+        <Timeout duration="3">
+          <AlwaysSuccess />
+        </Timeout>
+        <SayTextClient text="Pedido recogido" />
+      </Sequence>
+      
+      <!-- Step 6: Return to client -->
+      <Sequence name="ReturnToClient">
+        <SayTextClient text="Volviendo al cliente" />
+        <NavigateToPose 
+          x="{client_x}" 
+          y="{client_y}" 
+          yaw="{client_yaw}" />
+        <SayTextClient text="Llegando al cliente" />
+      </Sequence>
+      
+      <!-- Step 7: Deliver order (simulated) -->
+      <Sequence name="DeliverOrder">
+        <SayTextClient text="Entregando su pedido" />
+        <Timeout duration="3">
+          <AlwaysSuccess

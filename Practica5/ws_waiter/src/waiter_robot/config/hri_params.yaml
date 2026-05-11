@@ -1,0 +1,6 @@
+simple_hri:
+  ros__parameters:
+    use_sim_time: true
+    tts_service: "/tts"
+    asr_service: "/asr"
+    llm_service: "/llm"
