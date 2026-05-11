@@ -1,0 +1,27 @@
+[ 77%] Built target waiter_nodes
+[100%] Built target waiter_bt_example
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib/libwaiter_nodes.so
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib/waiter_robot/waiter_bt_example
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/hri_params.yaml
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/nav2_params.yaml
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/waiter_params.yaml
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/waiter_tree.xml
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/launch/waiter.launch.py
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/maps/map.yaml
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/package_run_dependencies/waiter_robot
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/parent_prefix_path/waiter_robot
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/path.sh
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/path.dsv
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.bash
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.sh
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.zsh
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.dsv
+-- Symlinking: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/package.dsv
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/packages/waiter_robot
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/cmake/waiter_robotConfig.cmake
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/cmake/waiter_robotConfig-version.cmake
+-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/package.xml

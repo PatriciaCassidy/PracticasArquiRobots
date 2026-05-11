@@ -8,9 +8,11 @@ import os
 
 
 def generate_launch_description():
-    pkg_waiter = FindPackageShare('waiter_robot')
-    pkg_nav2 = FindPackageShare('nav2_bringup')
+    # Encontrar los directorios de los paquetes
+    pkg_waiter_share = FindPackageShare('waiter_robot')
+    pkg_nav2_share = FindPackageShare('nav2_bringup')
     
+    # Argumentos de lanzamiento
     use_sim_time_arg = DeclareLaunchArgument(
         'use_sim_time',
         default_value='true',
@@ -19,34 +21,37 @@ def generate_launch_description():
     
     map_file_arg = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(pkg_waiter, 'maps', 'map.yaml'),
+        default_value=[pkg_waiter_share, '/maps/map.yaml'],
         description='Full path to map file'
     )
     
+    # Nav2
     nav2_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_nav2, 'launch', 'bringup_launch.py')
+            [pkg_nav2_share, '/launch/bringup_launch.py']
         ),
         launch_arguments={
             'map': LaunchConfiguration('map'),
             'use_sim_time': LaunchConfiguration('use_sim_time'),
-            'params_file': os.path.join(pkg_waiter, 'config', 'nav2_params.yaml'),
+            'params_file': [pkg_waiter_share, '/config/nav2_params.yaml'],
         }.items()
     )
     
+    # Nodo BT waiter
     waiter_bt_node = Node(
         package='waiter_robot',
         executable='waiter_bt_example',
         name='waiter_bt',
         output='screen',
-        parameters=[os.path.join(pkg_waiter, 'config', 'waiter_params.yaml')],
+        parameters=[LaunchConfiguration('use_sim_time')],
     )
     
+    # RViz (opcional)
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', os.path.join(pkg_waiter, 'rviz', 'waiter.rviz')],
+        arguments=['-d', [pkg_waiter_share, '/rviz/waiter.rviz']],
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
     )
     
