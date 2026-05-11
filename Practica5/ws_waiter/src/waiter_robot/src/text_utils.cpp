@@ -1,6 +1,7 @@
 #include "waiter_robot/text_utils.hpp"
 #include <behaviortree_cpp/blackboard.h>
 #include <regex>
+#include <rclcpp/rclcpp.hpp>  // ← AÑADIR ESTA LÍNEA
 
 namespace waiter_robot {
 

@@ -5,11 +5,8 @@
 #include <rclcpp/rclcpp.hpp>
 #include <memory>
 
-class HRIClient;
-
 void register_waiter_nodes(
   BT::BehaviorTreeFactory& factory,
-  rclcpp::Node::SharedPtr node,
-  std::shared_ptr<HRIClient> hri_client = nullptr);
+  rclcpp::Node::SharedPtr node);
 
 #endif  // WAITER_ROBOT__BT_NODES__BT_NODE_REGISTRATION_HPP_

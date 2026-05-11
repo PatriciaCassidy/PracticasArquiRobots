@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot/waiter_bt_example" "TARGETS" "waiter_bt_example" "DESTINATION" "lib/waiter_robot")
