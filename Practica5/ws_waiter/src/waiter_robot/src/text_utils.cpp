@@ -1,34 +1,36 @@
+// src/text_utils.cpp
 #include "waiter_robot/text_utils.hpp"
-#include <behaviortree_cpp/blackboard.h>
 #include <regex>
-#include <rclcpp/rclcpp.hpp>  // ← AÑADIR ESTA LÍNEA
+#include <rclcpp/rclcpp.hpp>
 
-namespace waiter_robot {
+namespace waiter_robot
+{
 
-std::string formatText(const std::string& text, BT::Blackboard::Ptr blackboard) {
+std::string formatText(const std::string & text, BT::Blackboard::Ptr blackboard)
+{
   std::string result = text;
-  
-  // Replace {variable_name} with values from blackboard
   std::regex pattern("\\{([^}]+)\\}");
   std::smatch match;
-  
+
+  // Iteramos sobre todas las ocurrencias {variable}
   while (std::regex_search(result, match, pattern)) {
-    std::string variable_name = match[1].str();
-    std::string full_match = match[0].str();
-    
+    const std::string var_name  = match[1].str();
+    const std::string full_match = match[0].str();
+
     try {
-      // Try to get the value from blackboard
-      std::string value = blackboard->get<std::string>(variable_name);
+      std::string value = blackboard->get<std::string>(var_name);
       result.replace(match.position(), full_match.length(), value);
     } catch (...) {
-      RCLCPP_WARN(rclcpp::get_logger("TextUtils"), 
-                  "Variable '%s' not found in blackboard, keeping original", 
-                  variable_name.c_str());
-      break; // Stop to avoid infinite loop if variable doesn't exist
+      // La variable no existe en el blackboard: la dejamos como esta
+      // y salimos para no entrar en bucle infinito
+      RCLCPP_WARN(rclcpp::get_logger("TextUtils"),
+        "Variable '%s' no encontrada en blackboard, se mantiene literal",
+        var_name.c_str());
+      break;
     }
   }
-  
+
   return result;
 }
 
-} // namespace waiter_robot
+}  // namespace waiter_robot

@@ -1,3 +1,4 @@
+// include/waiter_robot/say_text_action.hpp
 #ifndef WAITER_ROBOT__SAY_TEXT_ACTION_HPP_
 #define WAITER_ROBOT__SAY_TEXT_ACTION_HPP_
 
@@ -8,10 +9,10 @@
 class SayTextAction : public BT::SyncActionNode
 {
 public:
-  SayTextAction(const std::string& name,
-                const BT::NodeConfiguration& config,
+  SayTextAction(const std::string & name,
+                const BT::NodeConfiguration & config,
                 rclcpp::Node::SharedPtr node);
-  
+
   static BT::PortsList providedPorts();
   BT::NodeStatus tick() override;
 

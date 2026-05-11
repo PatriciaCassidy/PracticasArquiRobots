@@ -1,3 +1,4 @@
+// include/waiter_robot/listen_text_action.hpp
 #ifndef WAITER_ROBOT__LISTEN_TEXT_ACTION_HPP_
 #define WAITER_ROBOT__LISTEN_TEXT_ACTION_HPP_
 
@@ -8,10 +9,10 @@
 class ListenTextAction : public BT::SyncActionNode
 {
 public:
-  ListenTextAction(const std::string& name,
-                   const BT::NodeConfiguration& config,
+  ListenTextAction(const std::string & name,
+                   const BT::NodeConfiguration & config,
                    rclcpp::Node::SharedPtr node);
-  
+
   static BT::PortsList providedPorts();
   BT::NodeStatus tick() override;
 

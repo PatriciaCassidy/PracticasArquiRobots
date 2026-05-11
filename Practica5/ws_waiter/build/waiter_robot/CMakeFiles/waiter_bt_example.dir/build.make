@@ -98,6 +98,7 @@ waiter_bt_example: /opt/ros/jazzy/lib/libstatic_transform_broadcaster_node.so
 waiter_bt_example: /opt/ros/jazzy/lib/libtf2_ros.so
 waiter_bt_example: /opt/ros/jazzy/lib/librclcpp_action.so
 waiter_bt_example: /opt/ros/jazzy/lib/librcl_action.so
+waiter_bt_example: /opt/ros/jazzy/lib/libtf2.so
 waiter_bt_example: /opt/ros/jazzy/lib/libmessage_filters.so
 waiter_bt_example: /opt/ros/jazzy/lib/librclcpp.so
 waiter_bt_example: /opt/ros/jazzy/lib/liblibstatistics_collector.so
@@ -139,7 +140,6 @@ waiter_bt_example: /opt/ros/jazzy/lib/libstatistics_msgs__rosidl_typesupport_c.s
 waiter_bt_example: /opt/ros/jazzy/lib/libstatistics_msgs__rosidl_generator_c.so
 waiter_bt_example: /opt/ros/jazzy/lib/libtracetools.so
 waiter_bt_example: /opt/ros/jazzy/lib/librcl_logging_interface.so
-waiter_bt_example: /opt/ros/jazzy/lib/libtf2.so
 waiter_bt_example: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_fastrtps_c.so
 waiter_bt_example: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_introspection_c.so
 waiter_bt_example: /opt/ros/jazzy/lib/libtf2_msgs__rosidl_typesupport_fastrtps_cpp.so

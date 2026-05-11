@@ -321,17 +321,8 @@ include("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_wa
 # install("TARGETS" "waiter_bt_example" "DESTINATION" "lib/waiter_robot")
 include("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(DIRECTORY "config" "DESTINATION" "share/waiter_robot")
-ament_cmake_symlink_install_directory("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot" DIRECTORY "config" "DESTINATION" "share/waiter_robot")
-
-# install(DIRECTORY "launch" "DESTINATION" "share/waiter_robot")
-ament_cmake_symlink_install_directory("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot" DIRECTORY "launch" "DESTINATION" "share/waiter_robot")
-
-# install(DIRECTORY "maps" "DESTINATION" "share/waiter_robot")
-ament_cmake_symlink_install_directory("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot" DIRECTORY "maps" "DESTINATION" "share/waiter_robot")
-
-# install(DIRECTORY "rviz" "DESTINATION" "share/waiter_robot")
-ament_cmake_symlink_install_directory("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot" DIRECTORY "rviz" "DESTINATION" "share/waiter_robot")
+# install(DIRECTORY "config" "launch" "maps" "rviz" "DESTINATION" "share/waiter_robot")
+ament_cmake_symlink_install_directory("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot" DIRECTORY "config" "launch" "maps" "rviz" "DESTINATION" "share/waiter_robot")
 
 # install(FILES "/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/waiter_robot" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot" FILES "/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/waiter_robot" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

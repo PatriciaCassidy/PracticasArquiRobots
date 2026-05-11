@@ -1,0 +1,244 @@
+[0.000000] (-) TimerEvent: {}
+[0.001138] (waiter_robot) JobQueued: {'identifier': 'waiter_robot', 'dependencies': OrderedDict()}
+[0.001202] (waiter_robot) JobStarted: {'identifier': 'waiter_robot'}
+[0.007613] (waiter_robot) JobProgress: {'identifier': 'waiter_robot', 'progress': 'cmake'}
+[0.008768] (waiter_robot) JobProgress: {'identifier': 'waiter_robot', 'progress': 'build'}
+[0.008821] (waiter_robot) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot', '--', '-j12', '-l12'], 'cwd': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot', 'env': OrderedDict({'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'patricia', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}', 'MOTD_SHOWN': 'update-motd', 'HOME': '/home/patricia', 'OLDPWD': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src', 'ROS_PYTHON_VERSION': '3', 'PS1': '\\[\\e[35m\\]\\u@\\h:\\w$\\[\\e[0m\\]', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'patricia', 'NAME': 'Patricia', 'WSL_INTEROP': '/run/WSL/34164_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/MATLAB/R2025b/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/patri/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/patri/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/patri/.dotnet/tools:/mnt/c/msys64/ucrt64/bin:/snap/bin', 'WT_SESSION': 'd333441d-75f0-46c7-a04e-5d91e882f6b1', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'AMENT_PREFIX_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[0.048814] (waiter_robot) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.100062] (-) TimerEvent: {}
+[0.200876] (-) TimerEvent: {}
+[0.215312] (waiter_robot) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.221743] (waiter_robot) StdoutLine: {'line': b'-- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.301022] (-) TimerEvent: {}
+[0.341027] (waiter_robot) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.347165] (waiter_robot) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.355590] (waiter_robot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.364913] (waiter_robot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.401554] (-) TimerEvent: {}
+[0.410475] (waiter_robot) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.411905] (waiter_robot) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.502317] (-) TimerEvent: {}
+[0.535667] (waiter_robot) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.602646] (-) TimerEvent: {}
+[0.676392] (waiter_robot) StdoutLine: {'line': b'-- Found rclcpp_action: 28.1.16 (/opt/ros/jazzy/share/rclcpp_action/cmake)\n'}
+[0.702956] (-) TimerEvent: {}
+[0.706721] (waiter_robot) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.718440] (waiter_robot) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[0.730148] (waiter_robot) StdoutLine: {'line': b'-- Found nav2_msgs: 1.3.10 (/opt/ros/jazzy/share/nav2_msgs/cmake)\n'}
+[0.803247] (-) TimerEvent: {}
+[0.817215] (waiter_robot) StdoutLine: {'line': b'-- Found tf2: 0.36.19 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[0.820012] (waiter_robot) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.19 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[0.871133] (waiter_robot) StdoutLine: {'line': b'-- Found behaviortree_cpp: 4.8.3 (/opt/ros/jazzy/share/behaviortree_cpp/cmake)\n'}
+[0.875883] (waiter_robot) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[0.903583] (-) TimerEvent: {}
+[0.950551] (waiter_robot) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[0.950806] (waiter_robot) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include\n'}
+[0.950875] (waiter_robot) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[0.951308] (waiter_robot) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[0.951362] (waiter_robot) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[0.951726] (waiter_robot) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[0.952071] (waiter_robot) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[0.953047] (waiter_robot) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[0.953099] (waiter_robot) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[0.953378] (waiter_robot) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[0.954384] (waiter_robot) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[0.981255] (waiter_robot) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.988358] (waiter_robot) StdoutLine: {'line': b'-- Build files have been written to: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot\n'}
+[1.003777] (-) TimerEvent: {}
+[1.042079] (waiter_robot) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/navigate_to_pose_action.cpp.o\x1b[0m\n'}
+[1.042831] (waiter_robot) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/say_text_action.cpp.o\x1b[0m\n'}
+[1.048556] (waiter_robot) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/extract_info_action.cpp.o\x1b[0m\n'}
+[1.049184] (waiter_robot) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/listen_text_action.cpp.o\x1b[0m\n'}
+[1.053988] (waiter_robot) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/text_utils.cpp.o\x1b[0m\n'}
+[1.056419] (waiter_robot) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/bt_nodes/bt_node_registration.cpp.o\x1b[0m\n'}
+[1.104020] (-) TimerEvent: {}
+[1.204532] (-) TimerEvent: {}
+[1.305020] (-) TimerEvent: {}
+[1.405580] (-) TimerEvent: {}
+[1.506027] (-) TimerEvent: {}
+[1.606553] (-) TimerEvent: {}
+[1.707796] (-) TimerEvent: {}
+[1.809111] (-) TimerEvent: {}
+[1.909971] (-) TimerEvent: {}
+[2.010953] (-) TimerEvent: {}
+[2.111954] (-) TimerEvent: {}
+[2.213208] (-) TimerEvent: {}
+[2.314440] (-) TimerEvent: {}
+[2.414925] (-) TimerEvent: {}
+[2.515541] (-) TimerEvent: {}
+[2.616593] (-) TimerEvent: {}
+[2.717914] (-) TimerEvent: {}
+[2.819166] (-) TimerEvent: {}
+[2.920003] (-) TimerEvent: {}
+[3.020647] (-) TimerEvent: {}
+[3.121224] (-) TimerEvent: {}
+[3.221795] (-) TimerEvent: {}
+[3.323174] (-) TimerEvent: {}
+[3.423983] (-) TimerEvent: {}
+[3.524666] (-) TimerEvent: {}
+[3.626016] (-) TimerEvent: {}
+[3.727288] (-) TimerEvent: {}
+[3.828631] (-) TimerEvent: {}
+[3.929544] (-) TimerEvent: {}
+[4.030625] (-) TimerEvent: {}
+[4.131974] (-) TimerEvent: {}
+[4.232537] (-) TimerEvent: {}
+[4.333631] (-) TimerEvent: {}
+[4.434603] (-) TimerEvent: {}
+[4.535218] (-) TimerEvent: {}
+[4.635777] (-) TimerEvent: {}
+[4.736834] (-) TimerEvent: {}
+[4.838210] (-) TimerEvent: {}
+[4.939237] (-) TimerEvent: {}
+[5.040445] (-) TimerEvent: {}
+[5.141280] (-) TimerEvent: {}
+[5.242626] (-) TimerEvent: {}
+[5.343670] (-) TimerEvent: {}
+[5.444275] (-) TimerEvent: {}
+[5.545166] (-) TimerEvent: {}
+[5.646531] (-) TimerEvent: {}
+[5.747149] (-) TimerEvent: {}
+[5.847990] (-) TimerEvent: {}
+[5.949134] (-) TimerEvent: {}
+[6.050469] (-) TimerEvent: {}
+[6.151364] (-) TimerEvent: {}
+[6.252770] (-) TimerEvent: {}
+[6.353918] (-) TimerEvent: {}
+[6.454393] (-) TimerEvent: {}
+[6.554768] (-) TimerEvent: {}
+[6.655235] (-) TimerEvent: {}
+[6.755743] (-) TimerEvent: {}
+[6.856528] (-) TimerEvent: {}
+[6.957187] (-) TimerEvent: {}
+[7.058442] (-) TimerEvent: {}
+[7.158981] (-) TimerEvent: {}
+[7.260207] (-) TimerEvent: {}
+[7.361560] (-) TimerEvent: {}
+[7.462196] (-) TimerEvent: {}
+[7.563185] (-) TimerEvent: {}
+[7.664554] (-) TimerEvent: {}
+[7.765898] (-) TimerEvent: {}
+[7.867258] (-) TimerEvent: {}
+[7.967690] (-) TimerEvent: {}
+[8.068739] (-) TimerEvent: {}
+[8.170098] (-) TimerEvent: {}
+[8.271262] (-) TimerEvent: {}
+[8.372644] (-) TimerEvent: {}
+[8.473591] (-) TimerEvent: {}
+[8.574621] (-) TimerEvent: {}
+[8.675347] (-) TimerEvent: {}
+[8.775921] (-) TimerEvent: {}
+[8.876489] (-) TimerEvent: {}
+[8.977099] (-) TimerEvent: {}
+[9.077932] (-) TimerEvent: {}
+[9.179331] (-) TimerEvent: {}
+[9.280697] (-) TimerEvent: {}
+[9.382068] (-) TimerEvent: {}
+[9.483494] (-) TimerEvent: {}
+[9.584437] (-) TimerEvent: {}
+[9.685971] (-) TimerEvent: {}
+[9.787375] (-) TimerEvent: {}
+[9.888789] (-) TimerEvent: {}
+[9.990095] (-) TimerEvent: {}
+[10.091327] (-) TimerEvent: {}
+[10.192116] (-) TimerEvent: {}
+[10.293553] (-) TimerEvent: {}
+[10.394428] (-) TimerEvent: {}
+[10.495797] (-) TimerEvent: {}
+[10.596472] (-) TimerEvent: {}
+[10.697136] (-) TimerEvent: {}
+[10.797671] (-) TimerEvent: {}
+[10.898147] (-) TimerEvent: {}
+[10.998760] (-) TimerEvent: {}
+[11.099305] (-) TimerEvent: {}
+[11.200189] (-) TimerEvent: {}
+[11.300629] (-) TimerEvent: {}
+[11.401494] (-) TimerEvent: {}
+[11.501942] (-) TimerEvent: {}
+[11.603126] (-) TimerEvent: {}
+[11.703582] (-) TimerEvent: {}
+[11.803993] (-) TimerEvent: {}
+[11.904519] (-) TimerEvent: {}
+[11.958355] (waiter_robot) StdoutLine: {'line': b'[ 77%] \x1b[32m\x1b[1mLinking CXX shared library libwaiter_nodes.so\x1b[0m\n'}
+[12.004681] (-) TimerEvent: {}
+[12.105089] (-) TimerEvent: {}
+[12.206396] (-) TimerEvent: {}
+[12.307597] (-) TimerEvent: {}
+[12.313978] (waiter_robot) StdoutLine: {'line': b'[ 77%] Built target waiter_nodes\n'}
+[12.337689] (waiter_robot) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding CXX object CMakeFiles/waiter_bt_example.dir/src/waiter_bt_example.cpp.o\x1b[0m\n'}
+[12.408367] (-) TimerEvent: {}
+[12.508734] (-) TimerEvent: {}
+[12.609825] (-) TimerEvent: {}
+[12.711198] (-) TimerEvent: {}
+[12.812587] (-) TimerEvent: {}
+[12.912871] (-) TimerEvent: {}
+[13.013255] (-) TimerEvent: {}
+[13.113710] (-) TimerEvent: {}
+[13.214173] (-) TimerEvent: {}
+[13.314470] (-) TimerEvent: {}
+[13.414782] (-) TimerEvent: {}
+[13.515050] (-) TimerEvent: {}
+[13.615296] (-) TimerEvent: {}
+[13.715595] (-) TimerEvent: {}
+[13.815847] (-) TimerEvent: {}
+[13.916159] (-) TimerEvent: {}
+[14.016564] (-) TimerEvent: {}
+[14.116945] (-) TimerEvent: {}
+[14.217279] (-) TimerEvent: {}
+[14.317720] (-) TimerEvent: {}
+[14.418001] (-) TimerEvent: {}
+[14.518419] (-) TimerEvent: {}
+[14.619004] (-) TimerEvent: {}
+[14.719291] (-) TimerEvent: {}
+[14.819669] (-) TimerEvent: {}
+[14.919967] (-) TimerEvent: {}
+[15.020261] (-) TimerEvent: {}
+[15.120683] (-) TimerEvent: {}
+[15.221054] (-) TimerEvent: {}
+[15.321520] (-) TimerEvent: {}
+[15.421814] (-) TimerEvent: {}
+[15.522140] (-) TimerEvent: {}
+[15.622433] (-) TimerEvent: {}
+[15.722916] (-) TimerEvent: {}
+[15.823441] (-) TimerEvent: {}
+[15.923734] (-) TimerEvent: {}
+[16.024036] (-) TimerEvent: {}
+[16.124373] (-) TimerEvent: {}
+[16.224852] (-) TimerEvent: {}
+[16.323639] (waiter_robot) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable waiter_bt_example\x1b[0m\n'}
+[16.324921] (-) TimerEvent: {}
+[16.425143] (-) TimerEvent: {}
+[16.525802] (-) TimerEvent: {}
+[16.626848] (-) TimerEvent: {}
+[16.644253] (waiter_robot) StdoutLine: {'line': b'[100%] Built target waiter_bt_example\n'}
+[16.655351] (waiter_robot) CommandEnded: {'returncode': 0}
+[16.655957] (waiter_robot) JobProgress: {'identifier': 'waiter_robot', 'progress': 'install'}
+[16.665012] (waiter_robot) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot'], 'cwd': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot', 'env': OrderedDict({'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'patricia', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'WT_PROFILE_ID': '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}', 'MOTD_SHOWN': 'update-motd', 'HOME': '/home/patricia', 'OLDPWD': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src', 'ROS_PYTHON_VERSION': '3', 'PS1': '\\[\\e[35m\\]\\u@\\h:\\w$\\[\\e[0m\\]', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'patricia', 'NAME': 'Patricia', 'WSL_INTEROP': '/run/WSL/34164_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/MATLAB/R2025b/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/patri/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/patri/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/patri/.dotnet/tools:/mnt/c/msys64/ucrt64/bin:/snap/bin', 'WT_SESSION': 'd333441d-75f0-46c7-a04e-5d91e882f6b1', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'AMENT_PREFIX_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}), 'shell': False}
+[16.671897] (waiter_robot) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[16.672288] (waiter_robot) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[16.672585] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib/libwaiter_nodes.so\n'}
+[16.672783] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib/waiter_robot/waiter_bt_example\n'}
+[16.673125] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/hri_params.yaml\n'}
+[16.673350] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/nav2_params.yaml\n'}
+[16.673669] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/waiter_params.yaml\n'}
+[16.673869] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/waiter_tree.xml\n'}
+[16.674246] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/launch/waiter.launch.py\n'}
+[16.674437] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/maps/map.yaml\n'}
+[16.674676] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/package_run_dependencies/waiter_robot\n'}
+[16.674818] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/parent_prefix_path/waiter_robot\n'}
+[16.674991] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/ament_prefix_path.sh\n'}
+[16.675229] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/ament_prefix_path.dsv\n'}
+[16.675401] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/path.sh\n'}
+[16.675455] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/path.dsv\n'}
+[16.675603] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.bash\n'}
+[16.675664] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.sh\n'}
+[16.675827] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.zsh\n'}
+[16.676006] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.dsv\n'}
+[16.676142] (waiter_robot) StdoutLine: {'line': b'-- Symlinking: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/package.dsv\n'}
+[16.683733] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/packages/waiter_robot\n'}
+[16.684009] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/cmake/waiter_robotConfig.cmake\n'}
+[16.684159] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/cmake/waiter_robotConfig-version.cmake\n'}
+[16.684209] (waiter_robot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/package.xml\n'}
+[16.685339] (waiter_robot) CommandEnded: {'returncode': 0}
+[16.699264] (waiter_robot) JobEnded: {'identifier': 'waiter_robot', 'rc': 0}
+[16.700353] (-) EventReactorShutdown: {}

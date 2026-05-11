@@ -1,75 +1,75 @@
 <?xml version="1.0"?>
-<root main_tree_to_execute="WaiterMission">
+<root BTCPP_format="4" main_tree_to_execute="WaiterMission">
   <BehaviorTree ID="WaiterMission">
     <Sequence name="WaiterCycle">
-      
-      <!-- Step 1: Go to home position -->
+
+      <!-- Paso 1: Ir a posicion inicial -->
       <Sequence name="GoHome">
-        <SayText text="Yendo a posicion inicial" />
-        <NavigateToPose x="{home_x}" y="{home_y}" yaw="{home_yaw}" />
-        <SayText text="En posicion de espera" />
+        <SayText text="Yendo a posicion inicial"/>
+        <NavigateToPose x="{home_x}" y="{home_y}" yaw="{home_yaw}"/>
+        <SayText text="En posicion de espera"/>
       </Sequence>
-      
-      <!-- Step 2: Wait for client -->
+
+      <!-- Paso 2: Esperar cliente (simulado) -->
       <Sequence name="WaitForClient">
-        <SayText text="Esperando cliente..." />
-        <Timeout duration="3">
-          <AlwaysSuccess />
+        <SayText text="Esperando cliente..."/>
+        <Timeout msec="3000">
+          <AlwaysSuccess/>
         </Timeout>
-        <SayText text="Cliente detectado!" />
+        <SayText text="Cliente detectado!"/>
       </Sequence>
-      
-      <!-- Step 3: Take order -->
+
+      <!-- Paso 3: Tomar el pedido -->
       <Sequence name="TakeOrder">
-        <SayText text="Hola! Soy su camarero robot" />
-        
+        <SayText text="Hola! Soy su camarero robot"/>
+
         <Sequence name="GetBeverage">
-          <ListenText recognized_text="{recognized_text}" />
-          <ExtractInfo interest="bebida" full_text="{recognized_text}" extracted_info="{bebida}" />
-          <SayText text="Bebida anotada: {bebida}" />
+          <ListenText recognized_text="{recognized_text}"/>
+          <ExtractInfo interest="bebida" full_text="{recognized_text}" extracted_info="{bebida}"/>
+          <SayText text="Bebida anotada: {bebida}"/>
         </Sequence>
-        
+
         <Sequence name="GetFood">
-          <ListenText recognized_text="{recognized_text}" />
-          <ExtractInfo interest="comida" full_text="{recognized_text}" extracted_info="{comida}" />
-          <SayText text="Comida anotada: {comida}" />
+          <ListenText recognized_text="{recognized_text}"/>
+          <ExtractInfo interest="comida" full_text="{recognized_text}" extracted_info="{comida}"/>
+          <SayText text="Comida anotada: {comida}"/>
         </Sequence>
-        
-        <SayText text="Pedido completo: {bebida} y {comida}" />
+
+        <SayText text="Pedido completo: {bebida} y {comida}"/>
       </Sequence>
-      
-      <!-- Step 4: Go to kitchen -->
+
+      <!-- Paso 4: Ir a la cocina -->
       <Sequence name="GoToKitchen">
-        <SayText text="Yendo a la cocina" />
-        <NavigateToPose x="{kitchen_x}" y="{kitchen_y}" yaw="{kitchen_yaw}" />
-        <SayText text="Llegue a la cocina" />
+        <SayText text="Yendo a la cocina"/>
+        <NavigateToPose x="{kitchen_x}" y="{kitchen_y}" yaw="{kitchen_yaw}"/>
+        <SayText text="Llegue a la cocina"/>
       </Sequence>
-      
-      <!-- Step 5: Pick up order -->
+
+      <!-- Paso 5: Recoger pedido (simulado) -->
       <Sequence name="PickUpOrder">
-        <SayText text="Recogiendo pedido..." />
-        <Timeout duration="3">
-          <AlwaysSuccess />
+        <SayText text="Recogiendo pedido..."/>
+        <Timeout msec="3000">
+          <AlwaysSuccess/>
         </Timeout>
-        <SayText text="Pedido recogido!" />
+        <SayText text="Pedido recogido!"/>
       </Sequence>
-      
-      <!-- Step 6: Return to client -->
+
+      <!-- Paso 6: Volver al cliente -->
       <Sequence name="ReturnToClient">
-        <SayText text="Volviendo al cliente" />
-        <NavigateToPose x="{client_x}" y="{client_y}" yaw="{client_yaw}" />
-        <SayText text="Aqui tiene su pedido!" />
+        <SayText text="Volviendo al cliente"/>
+        <NavigateToPose x="{client_x}" y="{client_y}" yaw="{client_yaw}"/>
+        <SayText text="Aqui tiene su pedido!"/>
       </Sequence>
-      
-      <!-- Step 7: Deliver order -->
+
+      <!-- Paso 7: Entregar -->
       <Sequence name="DeliverOrder">
-        <SayText text="Entregando pedido..." />
-        <Timeout duration="3">
-          <AlwaysSuccess />
+        <SayText text="Entregando pedido..."/>
+        <Timeout msec="3000">
+          <AlwaysSuccess/>
         </Timeout>
-        <SayText text="Buen provecho!" />
+        <SayText text="Buen provecho!"/>
       </Sequence>
-      
+
     </Sequence>
   </BehaviorTree>
 </root>

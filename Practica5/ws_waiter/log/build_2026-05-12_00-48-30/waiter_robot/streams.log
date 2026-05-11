@@ -1,0 +1,71 @@
+[0.010s] Invoking command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake --build /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot -- -j12 -l12
+[0.048s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.214s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.221s] -- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.340s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.346s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.354s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.364s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.409s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.411s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.535s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.675s] -- Found rclcpp_action: 28.1.16 (/opt/ros/jazzy/share/rclcpp_action/cmake)
+[0.706s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.717s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.729s] -- Found nav2_msgs: 1.3.10 (/opt/ros/jazzy/share/nav2_msgs/cmake)
+[0.816s] -- Found tf2: 0.36.19 (/opt/ros/jazzy/share/tf2/cmake)
+[0.819s] -- Found tf2_ros: 0.36.19 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[0.870s] -- Found behaviortree_cpp: 4.8.3 (/opt/ros/jazzy/share/behaviortree_cpp/cmake)
+[0.875s] -- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.949s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.950s] -- Configured cppcheck include dirs: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include
+[0.950s] -- Configured cppcheck exclude dirs and/or files: 
+[0.950s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.950s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.951s] -- Added test 'lint_cmake' to check CMake code style
+[0.951s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.952s] -- Added test 'uncrustify' to check C / C++ code style
+[0.952s] -- Configured uncrustify additional arguments: 
+[0.952s] -- Added test 'xmllint' to check XML markup files
+[0.953s] -- Configuring done (0.9s)
+[0.980s] -- Generating done (0.0s)
+[0.987s] -- Build files have been written to: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot
+[1.041s] [ 11%] [32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/navigate_to_pose_action.cpp.o[0m
+[1.042s] [ 22%] [32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/say_text_action.cpp.o[0m
+[1.048s] [ 33%] [32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/extract_info_action.cpp.o[0m
+[1.048s] [ 44%] [32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/listen_text_action.cpp.o[0m
+[1.053s] [ 55%] [32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/text_utils.cpp.o[0m
+[1.055s] [ 66%] [32mBuilding CXX object CMakeFiles/waiter_nodes.dir/src/bt_nodes/bt_node_registration.cpp.o[0m
+[11.957s] [ 77%] [32m[1mLinking CXX shared library libwaiter_nodes.so[0m
+[12.313s] [ 77%] Built target waiter_nodes
+[12.337s] [ 88%] [32mBuilding CXX object CMakeFiles/waiter_bt_example.dir/src/waiter_bt_example.cpp.o[0m
+[16.323s] [100%] [32m[1mLinking CXX executable waiter_bt_example[0m
+[16.643s] [100%] Built target waiter_bt_example
+[16.654s] Invoked command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake --build /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot -- -j12 -l12
+[16.664s] Invoking command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake --install /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot
+[16.671s] -- Install configuration: ""
+[16.671s] -- Execute custom install script
+[16.671s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib/libwaiter_nodes.so
+[16.672s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/lib/waiter_robot/waiter_bt_example
+[16.672s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/hri_params.yaml
+[16.672s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/nav2_params.yaml
+[16.673s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/waiter_params.yaml
+[16.673s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/config/waiter_tree.xml
+[16.673s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/launch/waiter.launch.py
+[16.673s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/maps/map.yaml
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/package_run_dependencies/waiter_robot
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/parent_prefix_path/waiter_robot
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/ament_prefix_path.sh
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/ament_prefix_path.dsv
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/path.sh
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/environment/path.dsv
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.bash
+[16.674s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.sh
+[16.675s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.zsh
+[16.675s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/local_setup.dsv
+[16.675s] -- Symlinking: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/package.dsv
+[16.683s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/ament_index/resource_index/packages/waiter_robot
+[16.683s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/cmake/waiter_robotConfig.cmake
+[16.683s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/cmake/waiter_robotConfig-version.cmake
+[16.683s] -- Up-to-date symlink: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/install/waiter_robot/share/waiter_robot/package.xml
+[16.685s] Invoked command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake --install /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot

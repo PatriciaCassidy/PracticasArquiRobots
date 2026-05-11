@@ -719,4 +719,5 @@ CMakeFiles/waiter_nodes.dir/src/say_text_action.cpp.o: \
  /opt/ros/jazzy/include/rcl_yaml_param_parser/rcl_yaml_param_parser/visibility_control.h \
  /opt/ros/jazzy/include/rclcpp/rclcpp/parameter_map.hpp \
  /opt/ros/jazzy/include/rclcpp/rclcpp/parameter_event_handler.hpp \
- /opt/ros/jazzy/include/rclcpp/rclcpp/parameter_service.hpp
+ /opt/ros/jazzy/include/rclcpp/rclcpp/parameter_service.hpp \
+ /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include/waiter_robot/text_utils.hpp

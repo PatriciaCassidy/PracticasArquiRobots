@@ -8,21 +8,21 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# find dependencies
+# --- dependencias -----------------------------------------------------------
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
+find_package(tf2 REQUIRED)          
 find_package(tf2_ros REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(behaviortree_cpp REQUIRED)
 
-# Include directories
 include_directories(include)
 
-# BT node implementations library
+# --- libreria de nodos BT ---------------------------------------------------
 add_library(waiter_nodes SHARED
   src/navigate_to_pose_action.cpp
   src/say_text_action.cpp
@@ -37,14 +37,15 @@ ament_target_dependencies(waiter_nodes
   rclcpp_action
   std_msgs
   geometry_msgs
+  tf2
   tf2_ros
   nav2_msgs
   behaviortree_cpp
 )
 
-# Waiter BT example
+# --- ejecutable principal ---------------------------------------------------
 add_executable(waiter_bt_example src/waiter_bt_example.cpp)
-target_link_libraries(waiter_bt_example waiter_nodes rclcpp::rclcpp)
+target_link_libraries(waiter_bt_example waiter_nodes)   # FIX: quitar rclcpp::rclcpp redundante
 ament_target_dependencies(waiter_bt_example
   rclcpp
   rclcpp_action
@@ -53,40 +54,18 @@ ament_target_dependencies(waiter_bt_example
   behaviortree_cpp
 )
 
-# Install library
+# --- install ----------------------------------------------------------------
 install(TARGETS waiter_nodes
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
-# Install executables
-install(TARGETS
-  waiter_bt_example
+install(TARGETS waiter_bt_example
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Install config files
-install(DIRECTORY
-  config
-  DESTINATION share/${PROJECT_NAME}
-)
-
-# Install launch files
-install(DIRECTORY
-  launch
-  DESTINATION share/${PROJECT_NAME}
-)
-
-# Install maps
-install(DIRECTORY
-  maps
-  DESTINATION share/${PROJECT_NAME}
-)
-
-# Install rviz
-install(DIRECTORY
-  rviz
+install(DIRECTORY config launch maps rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
