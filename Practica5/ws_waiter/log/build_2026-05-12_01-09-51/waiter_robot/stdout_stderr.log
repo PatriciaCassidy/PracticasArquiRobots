@@ -1,0 +1,9 @@
+[ 77%] Built target waiter_nodes
+[ 88%] [32mBuilding CXX object CMakeFiles/waiter_bt_example.dir/src/waiter_bt_example.cpp.o[0m
+[01m[K/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/src/waiter_bt_example.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Kbehaviortree_cpp/loggers/bt_zmq_publisher.h: No such file or directory
+    6 | #include [01;31m[K<behaviortree_cpp/loggers/bt_zmq_publisher.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/waiter_bt_example.dir/build.make:76: CMakeFiles/waiter_bt_example.dir/src/waiter_bt_example.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/waiter_bt_example.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

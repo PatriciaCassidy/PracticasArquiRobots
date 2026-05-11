@@ -1,0 +1,11 @@
+[0.011s] Invoking command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake --build /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot -- -j12 -l12
+[0.104s] [ 77%] Built target waiter_nodes
+[0.136s] [ 88%] [32mBuilding CXX object CMakeFiles/waiter_bt_example.dir/src/waiter_bt_example.cpp.o[0m
+[0.423s] [01m[K/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/src/waiter_bt_example.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Kbehaviortree_cpp/loggers/bt_zmq_publisher.h: No such file or directory
+[0.423s]     6 | #include [01;31m[K<behaviortree_cpp/loggers/bt_zmq_publisher.h>[m[K
+[0.423s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.423s] compilation terminated.
+[0.428s] gmake[2]: *** [CMakeFiles/waiter_bt_example.dir/build.make:76: CMakeFiles/waiter_bt_example.dir/src/waiter_bt_example.cpp.o] Error 1
+[0.428s] gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/waiter_bt_example.dir/all] Error 2
+[0.428s] gmake: *** [Makefile:146: all] Error 2
+[0.431s] Invoked command in '/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e[35m\]\u@\h:\w$\[\e[0m\] /usr/bin/cmake --build /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/build/waiter_robot -- -j12 -l12

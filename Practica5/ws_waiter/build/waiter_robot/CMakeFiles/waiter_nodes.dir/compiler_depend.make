@@ -3414,6 +3414,7 @@ CMakeFiles/waiter_nodes.dir/src/navigate_to_pose_action.cpp.o: /home/patricia/Ar
 
 CMakeFiles/waiter_nodes.dir/src/say_text_action.cpp.o: /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/src/say_text_action.cpp \
   /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include/waiter_robot/say_text_action.hpp \
+  /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include/waiter_robot/text_utils.hpp \
   /opt/ros/jazzy/include/behaviortree_cpp/action_node.h \
   /opt/ros/jazzy/include/behaviortree_cpp/basic_types.h \
   /opt/ros/jazzy/include/behaviortree_cpp/blackboard.h \
@@ -5027,9 +5028,9 @@ CMakeFiles/waiter_nodes.dir/src/text_utils.cpp.o: /home/patricia/ArquiRobots/ros
 
 /usr/include/c++/13/bits/regex.tcc:
 
-/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include/waiter_robot/text_utils.hpp:
-
 /home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/src/text_utils.cpp:
+
+/home/patricia/ArquiRobots/ros2_ws/PracticasArquiRobots/Practica5/ws_waiter/src/waiter_robot/include/waiter_robot/text_utils.hpp:
 
 /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.hpp:
 
